@@ -1,0 +1,29 @@
+.image-upload {
+    display: flex;
+}
+
+.image-upload__preview img {
+    width: 175px;
+}
+
+.uploadButton {
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #f2f4f6;
+    color: #595959;
+    font-size: 0.75rem;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+    height: 25px;
+    line-height: 22px;
+    padding: .0rem .5rem;
+    font-weight: 500;
+}
+
+.uploadButton svg {
+    height: 14px;
+    width: 14px;
+    margin-top: -2px;
+    margin-right: 5px;
+}

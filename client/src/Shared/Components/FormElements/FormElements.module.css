@@ -1,0 +1,27 @@
+.formGroup.dashed {
+    border-bottom: 1px dashed #e2e4e8;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.formGroup.dashed:last-of-type {
+    border: none;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+}
+
+.formControl > div {
+    background-color: #f6f8f9;
+}
+
+.formControl {
+    box-sizing: border-box;
+    font-size: 14px;
+    border-color: #f6f8f9;
+    /*background-color: #f6f8f9;*/
+    color: #4e5e6a;
+    box-shadow: none;
+    transition: background 0.5s;
+    height: 35px;
+    margin: 5px 0 0;
+}

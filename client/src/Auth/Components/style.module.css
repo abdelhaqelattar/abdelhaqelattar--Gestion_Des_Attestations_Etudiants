@@ -1,0 +1,19 @@
+.formControl {
+  margin-bottom: 25px;
+}
+
+.formControl label {
+  color: #9E9E9E;
+  font-size: .7em;
+  margin-left: 4px;
+}
+
+.formControl input {
+  background-color: transparent;
+  border: none;
+  border-bottom: #E0E0E0 solid 1px;
+}
+
+.formControl input::placeholder {
+  color: #9E9E9E;
+}

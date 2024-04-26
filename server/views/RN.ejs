@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    background: #fff;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .transcript-container {
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 20px;
+
+  }
+  
+  .transcript-header {
+
+    
+  }
+  
+  .transcript-title {
+    margin: 0;
+    border: 1px solid #000;
+    padding: 10px;
+    background-color: #e9e9e9;
+    text-align: center;
+  }
+  
+  .transcript-session {
+    
+    display: flex;
+    justify-content:center;
+    max-width: 50%;
+    margin: 15px auto;
+    background-color: #dcdcdc;
+    border: 1px solid #000;
+    padding: 10px;
+  }
+  
+  .transcript-info p, .transcript-footer p {
+    text-align: center;
+    margin: 10px 0;
+    font-weight: bold;
+  }
+  
+  .transcript-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+  }
+  
+  .transcript-table, .transcript-table th, .transcript-table td {
+    border: 1px solid #000;
+  }
+  
+  .transcript-table th, .transcript-table td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .transcript-table thead th {
+    background-color: #dcdcdc;
+  }
+       
+    </style>
+    <title>Relevé de Notes et Résultats</title>
+</head>
+
+<body>
+    <div class="transcript-container">
+        <div class="transcript-header">
+            <h1 class="transcript-title">RELEVÉ DE NOTES ET RÉSULTATS</h1>
+            <!-- <div class="transcript-session">
+                 You can add session information here if needed 
+            </div> -->
+        </div>
+        <div class="transcript-info">
+            <p><strong>Niveau: </strong><%= requests.Niveau %></p>
+            <p><strong>Nom de l'étudiant: </strong><%= student.name %></p>
+            <p><strong>CNE d'étudiant: </strong><%= student.CNE %></p>
+        </div>
+        <table class="transcript-table">
+            <thead>
+                <tr>
+                    <th>Module</th>
+                    <th>Note/Barème</th>
+                    <th>Résultat</th>
+                </tr>
+            </thead>
+            <!-- Other parts of the HTML remains the same -->
+
+            <tbody>
+              <!-- Check if the requested year exists -->
+              <% if (student.years_of_study[0].hasOwnProperty(requests.Niveau)) { %>
+                  <% const subjects = student.years_of_study[0][requests.Niveau]; %>
+                  <% var totalPointsYear = 0; %>
+                  <% var moduleCountYear = 0; %>
+                  <!-- Loop through subjects for the requested year -->
+                  <% for (const [subjectName, subjectData] of Object.entries(subjects)) { %>
+                      <% totalPointsYear += parseFloat(subjectData.grade); %>
+                      <% moduleCountYear += 1; %>
+                      <!-- Display individual subject row -->
+                      <tr>
+                          <td><%= subjectName %></td>
+                          <td><%= subjectData.grade %> / 20</td>
+                          <td><%= subjectData.valide ? 'Validé' : 'Non Validé' %></td>
+                      </tr>
+                  <% } %>
+                  <!-- Calculate and display the average for the requested year -->
+                 <!-- <tr>
+                      <td><strong>Moyenne Année <%= requests.Niveau %></strong></td>
+                      <td><%= moduleCountYear > 0 ? (totalPointsYear / moduleCountYear).toFixed(2) : 'N/A' %></td>
+                  </tr>-->
+              <% } else { %>
+                  <!-- Display a message if the requested year does not exist -->
+                  <tr>
+                      <td colspan="3">Aucune donnée disponible pour l'année <%= requests.Niveau %>.</td>
+                  </tr>
+              <% } %>
+          </tbody>
+
+
+            <!-- Rest of the HTML -->
+
+
+        </table>
+        <div class="transcript-footer">
+          <% const overallAverage = moduleCountYear > 0 ? totalPointsYear / moduleCountYear : 0; %>
+          <p>
+              La moyenne générale de l'étudiant est : <%= overallAverage.toFixed(2) %> / 20
+              <% if (requests.Niveau === '2AP1' || requests.Niveau === '2AP2') { %>
+                  <% if (overallAverage >= 10) { %>
+                      - Admis
+                  <% } else { %>
+                      - Non Admis
+                  <% } %>
+              <% } else if (requests.Niveau === 'CI1' || requests.Niveau === 'CI2' || requests.Niveau === 'CI3') { %>
+                  <% if (overallAverage >= 12) { %>
+                      - Admis
+                  <% } else { %>
+                      - Non Admis
+                  <% } %>
+              <% } %>
+          </p>
+      </div>
+    </div>
+</body>
+
+</html>

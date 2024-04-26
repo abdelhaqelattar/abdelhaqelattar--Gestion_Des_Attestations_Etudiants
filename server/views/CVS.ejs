@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #fff;
+}
+
+header, section, article, footer {
+    margin-bottom: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h4 {
+    font-weight: bold;
+    margin: 0;
+}
+
+header p {
+    margin: 0; 
+}
+
+.institution .c {
+    text-align: center;
+}
+
+.institution p, .signatures p {
+    text-align: left;
+    font-weight: bold;
+}
+
+article h2 {
+    font-size: 20px;
+   margin-top: 10px;
+    
+   
+}
+
+footer {
+    text-align: center;
+    position: relative;
+}
+
+.signatures {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.line {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+
+    </style>
+    <title>Convention de stage</title>
+</head>
+
+<body>
+
+    <header class="headers">
+        <p> <strong> <h4>université abdelmalek essaâdi <br>
+            Ecole Nationale des Sciences Appliquées <br>
+            Tétouan
+        </h4>
+</strong>
+           
+        </p>
+        
+       <p dir="rtl"> <strong>  
+              <span style="font-size: 18px;">جامعة عبد المالك السعدي</span><br>
+                <span style="font-size: 18px;">المدرسة الوطنية للعلوم التطبيقية</span><br>
+                <span style="font-size: 18px;">تطوان</span>
+            </strong>
+       </p>
+
+    </header>
+
+
+    <section class="institution">
+        <div class="c">
+            <h2>Convention de stage</h2>
+            <h2> ENTRE</h2>
+
+        </div>
+       
+        <p>L’Ecole Nationale des Sciences Appliquées, Université Abdelmalek Essaâdi - Tétouan</p>
+        <p>B.P. 2222, Mhannech II, Tétouan , Maroc</p>
+        <p>Tél. +212 5 39 68 80 27 ; Fax. +212 39 99 46 24. Web: <a href='https://ensa-tetouan.ac.ma'>https://ensa-tetouan.ac.ma</a></p>
+        <p>Représenté par le Professeur <strong>Kamal REKLAOUI</strong> en qualité de Directeur. </p>
+        <p><strong> Et </strong>
+        <p><strong> La Société: </strong>
+
+            <%= requests.cosocialreason %>
+        </p>
+        <p><strong> Téléphone de l'entreprise :</strong>
+            <%= requests.cophone %>
+        </p>
+        <p><strong> Adresse de l'entreprise :</strong>
+            <%= requests.coaddress %>
+        </p>
+        <p><strong> Email de l'entreprise : </strong>
+            <%= requests.comail %>
+        </p>
+        <p><strong> Adresse de l'entreprise </strong>
+            <%= requests.coaddress %>
+        </p>
+        <p><strong> Ville de l'entreprise </strong>
+            <%= requests.cocity %>
+        </p>
+        <p><strong>Représentée par Monsieur </strong>
+            <%= requests.corepresentative %>, <!--Fonction du représentant--> <%= requests.corepresentativefunction %>
+        </p>
+        
+    </section>
+    <article>
+        <h2>Article 1: Engagement</h2>
+        <!-- Content of Article 1 -->
+        <p>L’ENTREPRISE accepte de recevoir à titre de stagiaire <strong><%= student.name %></strong> étudiant de 
+            la filière «<strong><%= student.Field %></strong> <strong><%= student.years_of_study.year %></strong> » de l’ENSA de Tétouan,
+            Université Abdelmalek Essaâdi (Tétouan),pour une période allant du <%= requests.trainingfrom %> 
+            au <%= requests.trainingto %>.
+            <strong>En aucun cas, cette convention ne pourra autoriser les étudiants à s’absenter durant la période des contrôles ou des enseignements.</strong>
+        </p>
+        <h2>Article 2: Objet</h2>
+        <!-- Content of Article 2 -->
+        <p>Le stage aura pour objet essentiel d'assurer l'application pratique de l'enseignement donné par l'Etablissement,
+            et ce, en organisant des visites sur les installations et en réalisant des études proposées par L’ENTREPRISE.
+        </p>
+        <h2>Article 3: Encadrement et suivi</h2>
+        <!-- Content of Article 3 -->
+        <p>Pour accompagner le Stagiaire durant son stage, et ainsi instaurer une véritable collaboration L’ENTREPRISE/Stagiaire/Etablissement,
+            L’ENTREPRISE désigne Mme/Mr <%= requests.encadrantEntreprise %> encadrant(e) et parrain(e), pour superviser et assurer 
+            la qualité du travail fourni par le Stagiaire.
+            L'Etablissement désigne <%= requests.encadrantEtablissement %> en tant que tuteur qui procurera une assistance pédagogique
+        </p>
+        <h2>Article 4: Programme</h2>
+        <!-- Content of Article 4 -->
+        <p>Le Sujet du stage est:<strong> « <%= requests.trainingtopic %> » </strong>
+            Ce programme a été défini conjointement par <strong>l'Etablissement, L’ENTREPRISE</strong> et <strong>le Stagiaire</strong>.
+            Le contenu de ce programme doit permettre au Stagiaire une réflexion en relation avec les enseignements ou le projet de fin 
+            d'études qui s'inscrit dans le programme de formation de l'Etablissement.  
+        </p>
+        <h2>Article 5: Indemnité de stage</h2>
+        <!-- Content of Article 5 -->
+        <p>Au cours du stage, l’étudiant ne pourra prétendre à aucun salaire de la part de L’ENTREPRISE. 
+            Cependant, si l’ENTREPRISE et l’étudiant le conviennent, ce dernier pourra recevoir une indemnité forfaitaire de la part 
+            de l’ENTREPRISE des frais occasionnés par la mission confiée à l’étudiant. 
+        </p>
+        <h2>Article 6: Règlement </h2>
+        <!-- Content of Article 6 -->
+        <p>Pendant la durée du stage, le Stagiaire reste placé sous la responsabilité de <strong>l'Etablissement. 
+        Cependant, l’étudiant est tenu d’informer l’école dans un délai de 24h sur toute modification portant sur la convention déjà signée,
+        sinon il en assumera toute sa responsabilité sur son non-respect de la convention signée par l’école.</strong>
+            
+        Toutefois, le Stagiaire est soumis à la discipline et au règlement intérieur de <strong> L’ENTREPRISE </strong>. 
+        En cas de manquement, <strong>L’ENTREPRISE</strong> se réserve le droit de mettre fin au stage après en avoir convenu 
+        avec le Directeur de l'Etablissement.   
+        </p>
+        <h2>Article 7: Confidentialité </h2>
+        <!-- Content of Article 7 -->
+        <p>Le Stagiaire et l'ensemble des acteurs liés à son travail (l'administration de <strong>l'Etablissement</strong>,
+            le parrain pédagogique ...) sont tenus au secret professionnel. Ils s'engagent à ne pas diffuser
+            les informations recueillies à des fins de publications, conférences, communications, sans raccord
+            préalable de <strong>L’ENTREPRISE</strong>.Cette obligation demeure valable après l'expiration du stage 
+        </p>
+        <h2>Article 8: Assurance accident de travail  </h2>
+        <!-- Content of Article 7 -->
+        <p> <strong>Le stagiaire</strong> devra obligatoirement souscrire une assurance couvrant la Responsabilité
+             Civile et Accident de Travail, durant les stages et trajets effectués. 
+            En cas d'accident de travail survenant durant la période du stage, <strong>L’ENTREPRISE</strong> s'engage à faire parvenir 
+            immédiatement à l'Etablissement toutes les informations indispensables à la déclaration dudit accident.
+        </p>
+        <h2>Article 9: Evaluation de L’ENTREPRISE  </h2>
+        <!-- Content of Article 9 -->
+        <p>Le stage accompli, le parrain établira un rapport d'appréciations générales sur le travail effectué et le comportement 
+            du Stagiaire durant son séjour chez <strong>L’ENTREPRISE</strong>. <strong>L’ENTREPRISE</strong> remettra au Stagiaire une attestation 
+            indiquant la nature et la durée des travaux effectués.
+        </p>
+        <h2>Article 10: Rapport de stage </h2>
+        <!-- Content of Article 9 -->
+        <p>A l'issue de chaque stage, le Stagiaire rédigera un rapport de stage faisant état de ses travaux et de
+            son vécu au sein de <strong>L’ENTREPRISE</strong>. Ce rapport sera communiqué à <strong>L’ENTREPRISE</strong> 
+            et restera strictement confidentiel.
+        </p>
+    </article>
+
+
+    <footer>
+        <p>Fait à Tétouan en deux exemplaires, le  <%= new Date().toLocaleDateString('fr-FR') %></p>
+        <div class="signatures">
+            <div class="line">
+                <p>Etudiant : <%= student.name %></p>
+                <p>Le Coordonnateur de la filière</p>
+            </div>
+            <div class="line">
+                <p>Signature et cachet de L’Etablissement</p>
+                <p>Signature et cachet de L’ENTREPRISE</p>
+            </div>
+        </div>
+        
+    </footer>
+   
+</body>
+
+</html>
+
+

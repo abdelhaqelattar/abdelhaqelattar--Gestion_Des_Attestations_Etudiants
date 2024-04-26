@@ -1,0 +1,88 @@
+.nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 65px;
+    left: 250px;
+    background: #fff;
+    font-size: 13.5px;
+    color: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+    transition: all 300ms ease-in-out;
+}
+
+.fullwidth {
+    left: 70px;
+}
+
+
+@media screen and (max-width: 720px) {
+    .nav {
+        left: 0;
+    }
+    :global(.dashboard-page-title) {
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width: 721px) {
+    .toggleMenu {
+        display: none;
+    }
+}
+
+.right {
+    display: flex;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    width: auto;
+    background-color: transparent;
+    border: none;
+    font-size: inherit;
+    color: inherit;
+    padding: 0 15px;
+}
+
+.toggle:after {
+    display: none;
+}
+
+svg {
+    color: rgba(0, 0, 0, 0.55);
+    width: 20px;
+    height: 20px;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+}
+
+.label {
+    margin-left: 15px;
+}
+
+.dropdownMenu {
+    border: none;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 7px;
+    font-size: 13.5px;
+}
+
+.dropdownItem {
+    padding: 8px 15px;
+    color: #4e5e6a;
+}
+
+.dropdownItem svg {
+    margin-top: -3px;
+    margin-right: 3px;
+    height: 16px;
+    width: 16px;
+}

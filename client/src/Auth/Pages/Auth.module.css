@@ -1,0 +1,23 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 50px;
+    font-weight: 600;
+}
+
+.container {
+    width: 450px;
+    margin: auto;
+}
+
+.title {
+    margin-bottom: 50px;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.switch {
+    cursor: pointer;
+}

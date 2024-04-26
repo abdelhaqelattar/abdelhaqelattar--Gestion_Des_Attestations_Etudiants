@@ -1,0 +1,25 @@
+.title {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.submit_button svg {
+    color: #fff;
+}
+
+.submit_button {
+    width: auto;
+    background-color: rgb(102, 144, 244);
+    outline: none;
+    border: none;
+}
+
+.submit_button:hover {
+    background-color: #4076f2;
+    border-color: #4076f2;
+    color: #fff;
+}
+
+.submit_button_container {
+    align-items: center;
+}

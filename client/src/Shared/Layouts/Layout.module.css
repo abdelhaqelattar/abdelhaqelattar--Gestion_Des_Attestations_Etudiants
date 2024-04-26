@@ -1,0 +1,26 @@
+body {
+    background-color: #f7f7f7;
+}
+
+.main {
+    position: fixed;
+    top: 65px;
+    left: 250px;
+    right: 0;
+    bottom: 0;
+    padding: 25px;
+    transition: all 300ms ease-in-out;
+    overflow-y: auto;
+    z-index: -1;
+}
+
+.main.fullwidth {
+    left: 70px;
+}
+
+
+@media screen and (max-width: 720px) {
+    .main.fullwidth {
+        left: 0;
+    }
+}

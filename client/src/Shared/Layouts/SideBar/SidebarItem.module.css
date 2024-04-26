@@ -1,0 +1,117 @@
+.sidebarItem {
+    position: relative;
+    margin: 0;
+}
+
+.sidebarItem li a {
+    padding: 0.65rem 1.7rem;
+}
+
+.sidebarItemLink {
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    padding: 0.6rem 0.95rem;
+    margin: 0 10px;
+    border-radius: 3px;
+    color: #7b8190;
+    z-index: 2;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.hasSubMenu:before {
+    content: " ";
+    color: #7b8190;
+    border: solid;
+    border-width: 0 0.075rem 0.075rem 0;
+    border-top-width: 0px;
+    border-right-width: 0.075rem;
+    border-bottom-width: 0.075rem;
+    border-left-width: 0px;
+    display: inline-block;
+    padding: 2px;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    transition: all 0.1s ease-out;
+}
+
+.hasSubMenu.open:before {
+    content: " ";
+    border: solid;
+    border-width: 0 0.075rem 0.075rem 0;
+    border-top-width: 0px;
+    border-right-width: 0.075rem;
+    border-bottom-width: 0.075rem;
+    border-left-width: 0px;
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    transition: all 0.2s ease-out;
+    transform: rotate(-135deg);
+    top: 1.4rem;
+}
+
+.sidebarItem.active a {
+    color: #fff !important;
+    background-color: #6690F4;
+}
+
+.sidebarItem svg {
+    color: inherit;
+    width: 20px;
+    opacity: 0.8;
+}
+
+.menuText {
+    margin-left: 15px;
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+}
+
+.submenu {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebarItem {
+    overflow: hidden;
+}
+
+.sidebarItemLink {
+    cursor: pointer;
+}
+
+.submenuEnter {
+    max-height: 0;
+    opacity: 0;
+}
+
+.submenuEnterActive {
+    max-height: 200px; /* Adjust the maximum height as needed */
+    opacity: 1;
+    transition: max-height 300ms ease-in-out, opacity 300ms ease-in-out;
+}
+
+.submenuExit {
+    max-height: 200px; /* Adjust the maximum height as needed */
+    opacity: 1;
+}
+
+.submenuExitActive {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 300ms ease-in-out, opacity 300ms ease-in-out;
+}
+
+.textEnter {
+    display: none;
+}
+
+.textExit {
+    display: none;
+}

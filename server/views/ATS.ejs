@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .attestation-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #FFF;
+            text-align: center; /* Center aligns the entire container content */
+        }
+
+        .attestation-header h1 {
+            margin: 0;
+            padding: 10px 0;
+            background-color: #D3D3D3; /* Light gray background */
+            border: 2px solid black;
+        }
+
+        .attestation-body p, .attestation-footer p, address {
+            margin: 10px 0;
+            line-height: 1.6; /* Improves readability */
+        }
+
+        .attestation-footer {
+            margin-top: 20px;
+            border-top: 1px solid black;
+            padding-top: 10px;
+        }
+
+        address {
+            font-style: normal;
+            border-top: 1px dashed black;
+            border-bottom: 1px dashed black;
+            padding: 10px 0;
+        }
+
+        .attestation-note {
+            font-style: italic;
+            margin-top: 20px;
+        }
+    </style>
+    <title>Attestation de Scolarité</title>
+</head>
+
+<body>
+<div class="attestation-container">
+    <header class="attestation-header">
+        <h1><strong>ATTESTATION DE SCOLARITÉ</strong></h1>
+    </header>
+    <section class="attestation-body">
+        <p><strong>Le Directeur de l'École Nationale des Sciences Appliquées de Tétouan</strong> atteste que
+            l'étudiant:</p>
+        <p><strong>Monsieur </strong><%= student.name %></p>
+        <p><strong>Numéro de la carte d'identité nationale :</strong> <%= student.CIN %></p>
+        <p><strong>Code national de l'étudiant :</strong> <%= student.CNE %></p>
+        <p>Né le <strong><%= new Date(student.date_of_birth).toLocaleDateString('fr-FR') %></strong> à <strong><%= student.city %></strong></p>
+        <p><strong>Poursuit ses études à :</strong> École Nationale des Sciences Appliquées Tétouan pour l'année
+            universitaire <strong><%= requests.annee %></strong>.</p>
+        <p><strong>Diplôme :</strong> Ingénieur d'État</p>
+        
+        <% if (student.years.hasOwnProperty(requests.annee)) { %>
+            <% if (student.years[requests.annee] === '2AP1' || student.years[requests.annee] === '2AP2') { %>
+              <p><strong>Filière :</strong> Cycle Préparatoire</p>
+            <% } else if (student.years[requests.annee] === 'CI1') { %>
+              <p><strong>Filière :</strong> 1ère année cycle ingénieur - <%= student.Field %></p>
+            <% } else if (student.years[requests.annee] === 'CI2') { %>
+              <p><strong>Filière :</strong> 2ème année cycle ingénieur - <%= student.Field %></p>
+            <% } else if (student.years[requests.annee] === 'CI3') { %>
+              <p><strong>Filière :</strong> 3ème année cycle ingénieur - <%= student.Field %></p>
+            <% } %>
+           
+        <% } else { %>
+          <p><strong>Filière :</strong> Not available</p>
+        <% } %>
+        
+        <p><strong>Année :</strong> <%= requests.annee %></p>
+    </section>
+    <footer class="attestation-footer">
+        <p>SIGNATURE</p>
+        <p>Directeur</p>
+    </footer>
+    <address>
+        <strong>Adresse:</strong> B.P. 2222, Mhannech II, Tétouan , Maroc<br>
+        <strong>Tél:</strong> +212 5 39 68 80 27  | <strong>FAX:</strong> +212 39 99 46 24
+    </address>
+    <p class="attestation-note">Le présent document n'est délivré qu'en un seul exemplaire. Il appartient à
+        l'étudiant d'en faire des photocopies certifiées conformes.</p>
+</div>
+</body>
+</html>

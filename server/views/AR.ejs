@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attestation Reussite</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+    }
+
+    .attestation-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .university-header h2,
+    .attestation-title h1 {
+      text-align: center;
+    }
+
+    .attestation-body p,
+    .attestation-footer p,
+    .footer-note p {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+
+    .footer-note p {
+      font-size: smaller;
+      margin-top: 40px;
+      border-top: 1px solid #000;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="attestation-container">
+    <div class="university-header">
+      <h2><strong>UNIVERSITÉ ABDELMALEK ESSAÂDI</strong></h2>
+    </div>
+    <div class="attestation-title">
+      <h1><strong>ATTESTATION DE RÉUSSITE</strong></h1>
+    </div>
+    <div class="attestation-body">
+      <p>Le Directeur de l'École Nationale des Sciences Appliquées de Tétouan atteste que</p>
+      <p><strong>Monsieur /Madame <%= student.name %></strong></p>
+      <p>Né le <strong>
+          <%= new Date(student.date_of_birth).toLocaleDateString('fr-FR') %>
+        </strong> à <strong>
+          <%= student.city %>
+        </strong></p>
+      <p>a été déclaré admis au niveau</p>
+      <p>Au titre de l'année universitaire <strong>
+          <%= requests.annee %> Année Universitaire
+        </strong></p>
+      <% if (requests.annee==='2AP1' ) { %>
+        <p><strong>1ère année du cycle préparatoire</strong></p>
+        <% } else if (requests.annee==='2AP2' ) { %>
+          <p><strong>2ème année du cycle préparatoire</strong></p>
+          <% } else if (requests.annee==='CI1' ) { %>
+            <p>1ère année du cycle d'ingénieur</p>
+            <p><strong>
+                <%= student.Field %>
+              </strong></p>
+            <% } else if (requests.annee==='CI2' ) { %>
+              <p>2ème année du cycle d'ingénieur</p>
+              <p><strong>
+                  <%= student.Field %>
+                </strong></p>
+              <% } else if (requests.annee==='CI3' ) { %>
+                <p>3ème année du cycle préparatoire</p>
+                <p><strong>
+                    <%= student.Field %>
+                  </strong></p>
+                <% } %>
+                  
+    </div>
+    <div class="attestation-footer">
+      <p>Fait à Tétouan, le <strong>
+          <%= new Date().toLocaleDateString('fr-FR') %>
+        </strong></p>
+      <p><strong>N° étudiant : <%= student.appogee %></strong></p>
+    </div>
+    <div class="footer-note">
+      <p>Avis important: Il ne peut être délivré qu'un seul exemplaire de cette attestation. Aucun duplicata ne sera
+        fourni.</p>
+    </div>
+  </div>
+</body>
+
+</html>
